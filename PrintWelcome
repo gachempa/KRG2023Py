@@ -22,4 +22,4 @@ def design (N):
                     print('-', end=' ')
         print('\n')
 
-design(5)
+design(int(input("Input a number of rows, between 1 and 10: ")))
