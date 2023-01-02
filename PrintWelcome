@@ -1,0 +1,25 @@
+
+
+def design (N):
+    for i in range(0, N):
+        if i == (N-1)/2:
+            for i in range(0, ((3*N)-7)//2):
+                print('-', end =' ')
+            print('W E L C O M E', end = ' ')
+            for i in range(0, ((3*N)-7)//2):
+                print('-', end =' ')
+        else:
+            for j in range(0, 3*N):
+                if ((i>=(N+1)/2 and j>=((3*N-3)/2)-3*(N-i-1) and j<=((3*N+1)/2)+3*(N-i-1)) or (i<(N+1)/2 and j>=((3*N-3)/2)-3*i and j<=((3*N+1)/2)+3*i)):
+                    if (j%3==((3*N-3)/2)%3):
+                        print('.', end=' ')
+                    elif (j%3==((3*N-1)/2)%3):
+                        print('|', end=' ')
+                    elif (j%3==((3*N+1)/2)%3):
+                        print('.', end=' ')
+                           
+                else:
+                    print('-', end=' ')
+        print('\n')
+
+design(5)
