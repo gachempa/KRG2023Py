@@ -1,0 +1,29 @@
+# the "sum" that will keep track of conversion from roman numeral vaue to integer
+int_sum=0
+
+#setting up the key-value dictionaly for roman numerals
+roman_dict = {"I":1, "V":5, "X":10, "L":50, "C":100, "D":500, "M":1000}
+print("Dict key-values are: ")
+for i in roman_dict:
+    print(i,roman_dict[i])
+
+#taking input from user for roman numeral
+roman_num=input("Input Roman numeral: ")
+print(roman_num)
+
+#converting user's roman numeral input into an array 
+x_roman_num = [i for i in roman_num]
+print(x_roman_num)
+
+#finding length of the roman numeral
+len_x_roman_num=len(x_roman_num)
+print(len_x_roman_num)
+
+#the rightmost number is never an exception, and can be always added to the sum
+for i in range(0, len_x_roman_num):
+    print(x_roman_num[i])
+
+print("xxxxxx")
+x = roman_dict["X"]
+int_sum=int_sum+x
+print(int_sum)
