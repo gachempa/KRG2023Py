@@ -1,6 +1,9 @@
 # the "sum" that will keep track of conversion from roman numeral vaue to integer
 int_sum=0
 
+#this roman numerals can always be added
+can_add_list = ["V","L","D","M"]
+
 #setting up the key-value dictionaly for roman numerals
 roman_dict = {"I":1, "V":5, "X":10, "L":50, "C":100, "D":500, "M":1000}
 print("Dict key-values are: ")
@@ -18,10 +21,37 @@ print(x_roman_num)
 #finding length of the roman numeral
 len_x_roman_num=len(x_roman_num)
 print(len_x_roman_num)
+print("aaaaaa")
+
+#function to add value to sum
+def add_to_sum(x):
+    print("cccccc")
+    print(x_roman_num[x])
+    num_to_add = (roman_dict[x_roman_num[x]])
+    return(num_to_add)
 
 #the rightmost number is never an exception, and can be always added to the sum
 for i in range(0, len_x_roman_num):
     print(x_roman_num[i])
+    if(i==len_x_roman_num-1):
+        print(i)
+        print(int_sum)
+        print("calling add function")
+        to_add = add_to_sum(i)
+        print(to_add)
+        int_sum=int_sum+to_add
+        print("The new integer value is: ")
+        print(int_sum)
+    
+# roman letters V, L, D, M can always be added
+    elif(x_roman_num[i] in can_add_list):
+        print("can add")
+        print(x_roman_num[i])
+        to_add = add_to_sum(i)
+        print(to_add)
+        int_sum=int_sum+to_add
+        print("The new integer value is: ")
+        print(int_sum)
 
 print("xxxxxx")
 x = roman_dict["X"]
