@@ -1,0 +1,110 @@
+# the "sum" that will keep track of conversion from roman numeral vaue to integer
+int_sum=0
+
+#this roman numerals can always be added
+can_add_list = ["V","L","D","M"]
+
+#setting up the key-value dictionaly for roman numerals
+roman_dict = {"I":1, "V":5, "X":10, "L":50, "C":100, "D":500, "M":1000}
+print("Dict key-values are: ")
+for i in roman_dict:
+    print(i,roman_dict[i])
+
+#taking input from user for roman numeral
+roman_num=input("Input Roman numeral: ")
+print(roman_num)
+
+#converting user's roman numeral input into an array 
+x_roman_num = [i for i in roman_num]
+print(x_roman_num)
+
+#finding length of the roman numeral
+len_x_roman_num=len(x_roman_num)
+print(len_x_roman_num)
+print("aaa-inputs done-aaa")
+
+#function to add value to sum
+def add_to_sum(x):
+    print("ccc-ADD-ccc")
+    print(x_roman_num[x])
+    num_to_add = (roman_dict[x_roman_num[x]])
+    return(num_to_add)
+
+def sub_from_sum(x):
+    print("ccc-SUBTRACT-ccc")
+    print(x_roman_num[x])
+    num_to_sub = (roman_dict[x_roman_num[x]])
+    return(num_to_sub)
+
+#the rightmost number is never an exception, and can be always added to the sum
+for i in range(0, len_x_roman_num):
+    print(x_roman_num[i])
+    if(i==len_x_roman_num-1):
+        print("rightmost letter")
+        print(i)
+        print(int_sum)
+        print("calling add function")
+        to_add = add_to_sum(i)
+        print(to_add)
+        int_sum=int_sum+to_add
+        print("The new integer value is: ")
+        print(int_sum)
+    
+# roman letters V, L, D, M can always be added
+    elif(x_roman_num[i] in can_add_list):
+        print("can add")
+        print(x_roman_num[i])
+        to_add = add_to_sum(i)
+        print(to_add)
+        int_sum=int_sum+to_add
+        print("The new integer value is: ")
+        print(int_sum)
+
+# roman letter I, subtract if before V and X
+    elif(x_roman_num[i] == "I" and (x_roman_num[i+1] == "V" or x_roman_num[i+1] == "X")):
+        print("to subtract")
+        print(x_roman_num[i])
+        to_subtract = sub_from_sum(i)
+        print(to_subtract)
+        int_sum=int_sum-to_subtract
+        print("The new integer value is: ")
+        print(int_sum)
+
+# roman letter X, subtract if before L and C
+    elif(x_roman_num[i] == "X" and (x_roman_num[i+1] == "L" or x_roman_num[i+1] == "C")):
+        print("to subtract")
+        print(x_roman_num[i])
+        to_subtract = sub_from_sum(i)
+        print(to_subtract)
+        int_sum=int_sum-to_subtract
+        print("The new integer value is: ")
+        print(int_sum)
+
+# roman letter C, subtract if before D and M
+    elif(x_roman_num[i] == "C" and (x_roman_num[i+1] == "D" or x_roman_num[i+1] == "M")):
+        print("to subtract")
+        print(x_roman_num[i])
+        to_subtract = sub_from_sum(i)
+        print(to_subtract)
+        int_sum=int_sum-to_subtract
+        print("The new integer value is: ")
+        print(int_sum)
+
+# roman letter I,X,C, add in other cases
+    else:
+        print("can add I, X, or C")
+        print(x_roman_num[i])
+        to_add = add_to_sum(i)
+        print(to_add)
+        int_sum=int_sum+to_add
+        print("The new integer value is: ")
+        print(int_sum)
+print("xxxx--SUMMARY-xxxx")
+print("The roman numeral input was: ")
+print(roman_num)
+print("The integer value for the input is: ")
+print(int_sum)
+print("xxx-DONE-xxx")
+x = roman_dict["X"]
+int_sum=int_sum+x
+print(int_sum)
