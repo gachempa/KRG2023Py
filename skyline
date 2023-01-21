@@ -1,0 +1,54 @@
+buildings = [[2,9,10],[3,7,15],[5,12,12],[15,20,10],[19,24,8]]
+buildings_list=()
+bld_solution = []
+prev_height = 0
+prev_x_left = 0
+prev_x_right = 0
+
+print(buildings)
+
+len_buildings = len(buildings)
+
+print(len_buildings)
+
+for i in range(0,len_buildings):
+    if i == 0:
+        y = buildings[i]
+        z = [y[0],y[2]] # z is the x-left coord and y-height coord
+        bld_solution.append(z)       
+        prev_x_left = y[0]
+        prev_x_right = y[1]
+        prev_height = y[2]
+
+    else:
+        y = buildings[i]
+        z = [y[0],y[2]]
+        if y[0] > prev_x_right:
+            z1 = [prev_x_right,0] # case for gap with no bldg, z1 is the x-left coord and y-height coord
+            bld_solution.append(z1) 
+            bld_solution.append(z)       
+            prev_x_left = y[0]
+            prev_x_right = y[1]
+            prev_height = y[2] # essentially 0 as there was no bldg
+        if z[1] > prev_height and y[0] < prev_x_right:
+            bld_solution.append(z)
+            #prev_height = z[1]
+            if y[1] < prev_x_right:
+                z = [y[1],prev_height]
+                bld_solution.append(z)
+            else:
+                prev_x_right = y[1]
+                prev_height = z[1]
+        if z[1] < prev_height and y[0] < prev_x_right:
+            y[0] = prev_x_right
+            z = [y[0],y[2]]
+            bld_solution.append(z)
+            prev_x_left = y[0]
+            prev_x_right = y[1]
+            prev_height = y[2]
+
+z_final = [prev_x_right,0] # last point where buildings end
+bld_solution.append(z_final)
+
+print(bld_solution)
+
