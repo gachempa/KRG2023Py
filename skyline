@@ -1,15 +1,15 @@
 buildings = [[2,9,10],[3,7,15],[5,12,12],[15,20,10],[19,24,8]]
+#buildings = [[0,2,3],[2,5,3]]
 buildings_list=()
 bld_solution = []
 prev_height = 0
 prev_x_left = 0
 prev_x_right = 0
 
-print(buildings)
-
 len_buildings = len(buildings)
 
-print(len_buildings)
+print("Number of buildigs: ", len_buildings)
+print(buildings)
 
 for i in range(0,len_buildings):
     if i == 0: # this is the first bldg from left
@@ -30,6 +30,9 @@ for i in range(0,len_buildings):
             prev_x_left = y[0]
             prev_x_right = y[1]
             prev_height = y[2] 
+        elif y[0] == prev_x_right and y[2] == prev_height and y[1]: # same height next building then       
+            prev_x_right = y[1]
+            #no other change needed
         elif y[0] < prev_x_right and y[2] > prev_height and y[1] > prev_x_right: # taller building overlapping beyond prev bldg
             bld_solution.append(z)        
             prev_x_left = y[0]
@@ -37,6 +40,9 @@ for i in range(0,len_buildings):
             prev_height = y[2]        
         elif y[0] < prev_x_right and y[2] > prev_height and y[1] < prev_x_right: # a skinny less-wide taller building 
             bld_solution.append(z) # append the start of the taller bldg
+            prev_x_left = y[0]
+            prev_x_right = y[1]
+            prev_height = y[2]             
             # check if the next bldg has a start overlapping betweeen the current and prev bldgs, and a greater height than the prev bldg
             #don't change prev numbers as it remains the same
             f=len_buildings-1
@@ -45,8 +51,8 @@ for i in range(0,len_buildings):
                 next=buildings[g]
                 h=i-1
                 prev=buildings[h]
-                if next[2]>prev[2] and next[0]<prev_x_right: # skip as the next bldg will overwrite in next step
-                    pass
+                if next[2]>prev[2] and next[0]<y[1]: # skip as the next bldg will overwrite in next step
+                    prev_x_left = y[1] # the right edge should be moved
                 elif next[2]<prev[2]: # and next[0]<prev_x_right: #append the overhang from previous bldg
                     z = [y[1],prev_height]
                     bld_solution.append(z) # append the "overhang" of the previous bldg                   
@@ -61,5 +67,6 @@ for i in range(0,len_buildings):
 z_final = [prev_x_right,0] # last point where buildings end
 bld_solution.append(z_final)
 
+print("Solution array: ")
 print(bld_solution)
 
