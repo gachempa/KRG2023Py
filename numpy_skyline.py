@@ -14,13 +14,15 @@ print(np_buildings)
 # print("After sorting on axis = 0: ")
 # print(np.sort(np_buildings, axis=0))
 
-print("After arg-sorting on axis = -1: ")
+# print("After arg-sorting on axis = -1: ")
 # print(np_buildings[np_buildings[:,-1].argsort()])
-print(np_buildings[np_buildings[:,1].argsort()[::2]])
+#print(np_buildings[np_buildings[:,1].argsort()[::-1]])
 # print(np_buildings[np.argsort(np_buildings)[::1,0]])
 
-
-
+# Use lexsort to sort over multiple column, the last in the sort-order
+#  is primary and so on: k[np.lexsort((k[:,2], k[:,1], k[:,0]))]
+print("After lexsorting")
+print(np_buildings[np.lexsort([-np_buildings[:,2], np_buildings[:,0]])])
 
 # print("After sorting: ")
 # print(np_buildings)
