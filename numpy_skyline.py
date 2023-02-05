@@ -19,10 +19,27 @@ print(np_buildings)
 #print(np_buildings[np_buildings[:,1].argsort()[::-1]])
 # print(np_buildings[np.argsort(np_buildings)[::1,0]])
 
-# Use lexsort to sort over multiple column, the last in the sort-order
-#  is primary and so on: k[np.lexsort((k[:,2], k[:,1], k[:,0]))]
+# LEXSORT - sort using multiple column-criteria
+# the last in the sort-order is "primary" and so on going reverse
+#  syntax: k[np.lexsort((k[:,2], k[:,1], k[:,0]))]
 print("After lexsorting")
-print(np_buildings[np.lexsort([-np_buildings[:,2], np_buildings[:,0]])])
+np_buildings = np_buildings[np.lexsort([-np_buildings[:,2], np_buildings[:,0]])]
+# print(np_buildings[np.lexsort([-np_buildings[:,2], np_buildings[:,0]])])
+print(np_buildings)
+
+# LOOP through array
+# print("shape[0] is: ", np_buildings.shape[0])
+for x in reversed(range(np_buildings.shape[0])):
+    # if(np_buildings)
+    print(np_buildings[x,0])
+
+
+# INSERT row/s
+# syntax: newArr = np.insert(arr, 2, (99, 99, 99), axis=0)
+np_buildings = np.insert(np_buildings,2,(99,99,99), axis=0)
+print("After inserting values:")
+print(np_buildings)
+
 
 # print("After sorting: ")
 # print(np_buildings)
