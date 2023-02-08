@@ -30,7 +30,9 @@ print(np_buildings)
 # LOOP through array
 # print("shape[0] is: ", np_buildings.shape[0])
 for x in reversed(range(np_buildings.shape[0])):
-    print(x," : ", np_buildings[x][0]) # this works for printing specific element from matrix
+    if(x>0):
+        if(np_buildings[x][0] == np_buildings[x-1][0]):
+            print(x," : ", np_buildings[x][0]) # this works for printing specific element from matrix
     # print(np_buildings[x][0])
     #if(np_buildings[0,x]==np_buildings[0,x-1]) and x>0:
     # if(np.np_buildings([0,x])==np.np_buildings([0,x-1])) and x>0:
