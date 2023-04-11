@@ -82,3 +82,4 @@ elif(
 else:
     (print(area(first_board)))
 
+print("\n") #for usaco input glitch
