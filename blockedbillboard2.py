@@ -4,7 +4,7 @@
 #first_board = (2, 1, 7, 4) #lawnmower baord
 second_board = (5, -1, 10, 3) # feed board
 
-first_board = (6, 1, 11, 2) #lawnmower baord, test case 3
+first_board = (6, 1, 9, 4) #lawnmower baord, TEST case 3
 
 x1 = first_board[0]
 y1 = first_board[1]
@@ -72,6 +72,13 @@ elif(
 
 # one side complete  overlap
 elif(
-    x3 <= x1 <= x4 <= x2 and y3 <= y1 <= y2 <= y4    
+    (x3 <= x1 <= x4 <= x2 and y3 <= y1 <= y2 <= y4) or
+    (x1 <= x3 <= x2 <= x4 and y3 <= y1 <= y2 <= y4) or
+    (y3 <= y1 <= y4 <= y2 and x3 <= x1 <= x2 <= x4) or
+    (y1 <= y3 <= y2 <= y4 and x3 <= x1 <= x2 <= x4)    
     ):
     print(area(first_board)-overlap(first_board, second_board))  
+
+else:
+    (print(area(first_board)))
+
