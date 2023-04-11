@@ -3,7 +3,8 @@
 
 #first_board = (2, 1, 7, 4) #lawnmower baord
 second_board = (5, -1, 10, 3) # feed board
-first_board = (4, 1, 11, 3) #lawnmower baord, test case 7
+
+first_board = (6, 1, 11, 2) #lawnmower baord, test case 3
 
 x1 = first_board[0]
 y1 = first_board[1]
@@ -25,6 +26,18 @@ def delta_x(board):
 def delta_y(board):
     return (board[3] - board[1])
 
+def overlap(board1, board2):
+    xbottom = max(board1[0], board2[0])
+    xtop = min(board1[2], board2[2])
+
+    yleft = max(board1[1], board2[1])
+    yright = min(board1[3], board2[3])
+
+    delta_x = xtop - xbottom
+    delta_y = yright - yleft
+
+    return delta_x * delta_y if delta_x > 0 and delta_y > 0 else 0
+
 # L-board is within F-board
 if(
     (x3 <= x1 <= x4 and x3 <= x2 <= x4) and
@@ -39,6 +52,13 @@ elif(
     ):
     print(area(first_board))    
 
+# no overlap
+elif(
+    x1 >= x4 or x2 <= x3 or y1 >= y4 or y2 <= y3    
+    ):
+    print(area(first_board))  
+
+
 # in x axis, L brd us narrower than F brd, but covers F brd and is taller than F Brd
 # in y axis, L brd us narrower than F brd, but covers F brd and is taller than F Brd
 elif(
@@ -49,3 +69,9 @@ elif(
     (x3 >= x1  and x4 <= x2))
     ): 
     print(area(first_board))
+
+# one side complete  overlap
+elif(
+    x3 <= x1 <= x4 <= x2 and y3 <= y1 <= y2 <= y4    
+    ):
+    print(area(first_board)-overlap(first_board, second_board))  
