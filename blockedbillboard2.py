@@ -1,10 +1,17 @@
 # An extension of the blocked billboard problem
 
 
-#first_board = (2, 1, 7, 4) #lawnmower baord
+first_board = (2, 1, 7, 4) #lawnmower baord
 second_board = (5, -1, 10, 3) # feed board
 
-first_board = (6, 1, 9, 4) #lawnmower baord, TEST case 3
+#first_board = (6, 1, 9, 4) #lawnmower baord, TEST case 3
+
+#for usaco inputs
+# a, b, c, d = map(int, input().split())
+# e, f, g, h = map(int, input().split())
+
+# first_board = (a, b, c, d)
+# second_board = (e, f, g, h)
 
 x1 = first_board[0]
 y1 = first_board[1]
