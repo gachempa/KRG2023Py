@@ -1,16 +1,14 @@
 
 import sys
-
 sys.stdin = open("shell.in")
-
 sys.stdout = open("shell.out", "w")
 
 n_swaps = map(int, input())
-
 swaps=[]
 
 for x in range n_swaps:
-  swaps[x] = map(int, input().split())
+  a, b, c = map(int, input().split())
+  swaps[x] = [a,b,c]
 
 position_abc = [[1,0,0],[0,1,0], [0,0,1]] 
 
@@ -45,3 +43,4 @@ for x in range(n_swaps):
 
 print(max(score_a, score_b,score_c)) 
 
+print("\n") 
