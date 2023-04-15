@@ -8,7 +8,7 @@ swaps=[]
 
 for x in range n_swaps:
   a, b, c = map(int, input().split())
-  swaps[x] = [a,b,c]
+  swaps[x] = a,b,c
 
 position_abc = [[1,0,0],[0,1,0], [0,0,1]] 
 
