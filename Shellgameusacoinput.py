@@ -1,4 +1,4 @@
-
+# this does NOT work ... probably input problem
 import sys
 sys.stdin = open("shell.in")
 sys.stdout = open("shell.out", "w")
