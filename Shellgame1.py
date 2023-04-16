@@ -8,7 +8,7 @@ score_c = 0
 
 n_swaps = 3
 
-swaps = [[1, 2, 3],[2,3,1],[3,1,2]]
+swaps = [[1, 2, 1],[3,2,1],[1,3,1]]
     
 def doswap(a,b):
 #    print(position_abc)
@@ -39,6 +39,6 @@ for x in range(n_swaps):
     if position_abc[1][choice-1] == 1: score_b += 1
     if position_abc[2][choice-1] == 1: score_c += 1
 
-#    print(score_a, score_b, score_c)
+print(score_a, score_b, score_c)
 
 print(max(score_a, score_b,score_c))           
