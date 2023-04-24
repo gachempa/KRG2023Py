@@ -12,7 +12,7 @@ n_average=0
 flowers=[]
 
 def naverage(alist):
-#    print(alist)
+    print(alist)
     listavg=sum(alist) / len(alist)
     if listavg.is_integer and listavg in alist:
         return(1)
@@ -20,10 +20,11 @@ def naverage(alist):
         return(0) 
 
 for x in range(1, n+1):
-#    print("x: ", x)
+    print("x: ", x)
     for y in range(x, n+1):
         flowers.append(y)
         n_average = n_average + naverage(flowers)
+        print("n_average = ",n_average)
         if y==n:
             flowers.clear()
 
