@@ -6,18 +6,16 @@
 n = 3
 m = 8
 
-m_spottyCows = []
-m_plainCows = []
+m_spottyGenome = []
+m_plainGenome = []
 
-input_1 = AATCCCAT
-input_2 = GATTGCAA
-input_3 = GGTCGCAA
-input_4 = ACTCCCAG
-input_5 = ACTCGCAT
-input_6 = ACTTCCAT
+bovine_genomes= ["AATCCCAT","GATTGCAA","GGTCGCAA","ACTCCCAG","ACTCGCAT","ACTTCCAT"]
+
+print(bovine_genomes[0][0])
 
 for x in range(0, 2*n):
-    
+    if x<n:
+        
 
 
 
