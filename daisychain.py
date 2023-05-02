@@ -14,7 +14,8 @@ flowers=[]
 def naverage(alist):
     print(alist)
     listavg=sum(alist) / len(alist)
-    if listavg.is_integer and listavg in alist:
+#    if listavg.is_integer and listavg in alist:
+    if listavg in alist:
         return(1)
     else:
         return(0) 
