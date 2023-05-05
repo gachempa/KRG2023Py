@@ -12,16 +12,11 @@ locationscore = 0
 bovine_genomes= ["AATCCCAT","GATTGCAA","GGTCGCAA","ACTCCCAG","ACTCGCAT","ACTTCCAT"]
 
 def mutation(listspotty, listplain, ncows):
-    i=0
-    for x in range(0, ncows):
-        if listspotty[x] in listplain:
-            print("xxxx")
-            print(listspotty[x])
-            print("xxxx")
-            break
-        
-        else: i = 1
-    return i
+    for x in range(0, 1):
+        print("xxxx")
+        print(listspotty)
+        print("xxx----xxx")
+    return 1
 
 for y in range(0,m):
     m_spottyGenome.clear()
@@ -29,8 +24,7 @@ for y in range(0,m):
     for x in range(0, n):
         m_spottyGenome.append(bovine_genomes[x][y])
         m_plainGenome.append(bovine_genomes[n+x][y])
-        locationscore = locationscore + mutation(m_spottyGenome, m_plainGenome, n)
+        if x == n-1:
+            locationscore = locationscore + mutation(m_spottyGenome, m_plainGenome, n)
 
-    print(m_spottyGenome)
-    print(m_plainGenome)
 print(locationscore)
