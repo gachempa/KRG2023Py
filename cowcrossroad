@@ -1,14 +1,14 @@
 # usaco input lines - testing
-# import sys
-# n_observations = int(input())
-# cow_road_side= []
-# for x in range(0,n):
-#     a,b = map(int, input().split())
-#     cow_road_side.append(a,b)
+import sys
+n_observations = int(input())
+cow_road_side= []
+for x in range(0,n_observations):
+    a,b = map(int, input().split())
+    cow_road_side.append([a,b])
 
 # comment below 2 lines for USACO
-n_observations=8
-cow_road_side = [[3,1],[3,0],[6,0],[2,1],[4,1],[3,0],[4,0],[3,1]] 
+# n_observations=8
+# cow_road_side = [[3,1],[3,0],[6,0],[2,1],[4,1],[3,0],[4,0],[3,1]] 
 
 
 total_cow_crosses = 0
@@ -16,13 +16,17 @@ cow_last_side={}
 for x in range(0,n_observations):
     if cow_road_side[x][0] in cow_last_side:
         a=cow_road_side[x][0]
-        print(a, cow_last_side[a])
+        #comment below print statement for usaco
+        #print(a, cow_last_side[a])
         if cow_road_side[x][1] != cow_last_side[a]:
-            print("value of cow is different ", cow_last_side[a])
+            #comment below print statement for usaco
+            #print("value of cow is different ", cow_last_side[a])
             total_cow_crosses +=1
+            cow_last_side[a]=cow_road_side[x][1]
 
     else:
         cow_last_side[cow_road_side[x][0]]=cow_road_side[x][1]
-        print("new cow")
+        #comment below print statement for usaco
+        #print("new cow")
 
 print(total_cow_crosses)
