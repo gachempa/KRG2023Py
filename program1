@@ -13,3 +13,5 @@ if input_number < 10:
     print(input_number)
 else:
     print('That is not a valid entry')
+
+print("Thanks for testing!")
