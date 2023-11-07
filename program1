@@ -14,4 +14,4 @@ if input_number < 10:
 else:
     print('That is not a valid entry')
 
-print("Thanks for testing!")
+print("Thanks for testing  mmmmm!")
